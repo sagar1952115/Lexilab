@@ -21,7 +21,11 @@ const Navbar = () => {
           </li>
 
           <li className="m-3 list-none">
-            <a href="https://github.com/sagar1952115" target="_blank">
+            <a
+              href="https://github.com/sagar1952115"
+              rel="noreferrer"
+              target="_blank"
+            >
               Github
             </a>
           </li>
@@ -61,7 +65,11 @@ const Navbar = () => {
           </li>
 
           <li className="my-2 list-none">
-            <a href="https://github.com/sagar1952115" target="_blank">
+            <a
+              href="https://github.com/sagar1952115"
+              rel="noreferrer"
+              target="_blank"
+            >
               Github
             </a>
           </li>
