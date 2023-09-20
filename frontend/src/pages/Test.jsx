@@ -17,7 +17,7 @@ const Test = () => {
   const fetchQuestion = async () => {
     try {
       const res = await axios.get(
-        `/api/question?lang_id=${
+        `https://lexilab.onrender.com/api/question?lang_id=${
           state.id
         }&category=${state.topic.toLowerCase()}`
       );
