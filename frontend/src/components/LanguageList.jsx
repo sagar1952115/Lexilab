@@ -12,7 +12,7 @@ const LanguageList = () => {
   }, [languages]);
   const fetchLanguage = async () => {
     try {
-      const response = await axios.get("/api/lang");
+      const response = await axios.get("https://lexilab.onrender.com/api/lang");
       setLanguages(response.data.lang);
     } catch (err) {
       console.log(err);

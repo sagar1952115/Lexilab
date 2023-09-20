@@ -17,7 +17,9 @@ const Profile = () => {
   };
   const fetchLearningInfo = async () => {
     try {
-      const res = await axios.get(`/api/user/profile/${User.data._id}`);
+      const res = await axios.get(
+        `https://lexilab.onrender.com/api/user/profile/${User.data._id}`
+      );
       setLearningData(res.data.learningInfo);
     } catch (err) {
       console.log(err);

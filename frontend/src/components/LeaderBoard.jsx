@@ -14,7 +14,9 @@ const LeaderBoard = ({ setOpenLeaderBoard, lang_id }) => {
   const fetchLeaderBoard = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get(`/api/${lang_id}/leaderboard`);
+      const res = await axios.get(
+        `https://lexilab.onrender.com/api/${lang_id}/leaderboard`
+      );
       setLeaderBoard(res.data.leaderboardData);
       setIsLoading(false);
     } catch (err) {

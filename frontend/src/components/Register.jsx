@@ -29,11 +29,14 @@ const Register = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("/api/user/signup", {
-        name,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://lexilab.onrender.com/api/user/signup",
+        {
+          name,
+          email,
+          password,
+        }
+      );
       if (response.status === 201) {
         window.location.href = "/signin";
       }

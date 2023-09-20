@@ -41,11 +41,14 @@ const TestPage = ({ questions, lang, id, level }) => {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post("/api/test/result", {
-        questionArr: questions,
-        answerArr: userAnswers,
-        user_id,
-      });
+      const res = await axios.post(
+        "https://lexilab.onrender.com/api/test/result",
+        {
+          questionArr: questions,
+          answerArr: userAnswers,
+          user_id,
+        }
+      );
       setCorrect(res.data.correct);
       setIncorrect(res.data.incorrect);
       setUnattempted(res.data.unattempted);

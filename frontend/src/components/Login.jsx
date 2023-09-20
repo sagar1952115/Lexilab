@@ -17,10 +17,13 @@ const Login = () => {
     }
     try {
       setIsLoading(true);
-      const response = await axios.post("/api/user/signin", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://lexilab.onrender.com/api/user/signin",
+        {
+          email,
+          password,
+        }
+      );
 
       if (response.status === 200) {
         localStorage.setItem("user", JSON.stringify(response));

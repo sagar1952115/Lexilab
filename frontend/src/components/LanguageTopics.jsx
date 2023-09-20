@@ -11,7 +11,7 @@ const LanguageTopics = ({ lang, id, level }) => {
   }, [level]);
   const fetchTopics = async () => {
     const response = await axios.get(
-      `/api/topics?lang_id=${id}&level=${level}`
+      `https://lexilab.onrender.com/api/topics?lang_id=${id}&level=${level}`
     );
     setTopic(response.data.topics);
   };
