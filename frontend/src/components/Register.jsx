@@ -42,6 +42,7 @@ const Register = () => {
       }
       setIsLoading(false);
     } catch (err) {
+      setError("Please check your information");
       setIsLoading(false);
       console.log(err);
     }

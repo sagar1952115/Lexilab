@@ -29,7 +29,9 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(response));
         window.location.href = "/";
       }
+      setIsLoading(false);
     } catch (err) {
+      setError("Please check you information");
       setIsLoading(false);
       console.log(err);
     }
@@ -126,22 +128,6 @@ const Login = () => {
         </div>
       </div>
     </div>
-
-    // <div>
-    //   <input
-    //     value={email}
-    //     onChange={(e) => setEmail(e.target.value)}
-    //     placeholder="Enter email here"
-    //     type="text"
-    //   />
-    //   <input
-    //     value={password}
-    //     onChange={(e) => setPassword(e.target.value)}
-    //     placeholder="Enter password"
-    //     type="password"
-    //   />
-    //   <button onClick={handleSubmit}>SignIn</button>
-    // </div>
   );
 };
 

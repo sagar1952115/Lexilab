@@ -11,19 +11,22 @@ import Test from "./pages/Test";
 import Login from "./components/Login";
 
 function App() {
+  const user = localStorage.getItem("user");
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={user ? <Profile /> : <Login />} />
         <Route path="/signup" element={<Register />} />
-        <Route path="/:lang/:topic/test" element={<Test />} />
+        <Route
+          path="/:lang/:topic/test"
+          element={user ? <Test /> : <Login />}
+        />
         <Route path="/signin" element={<Login />} />
         <Route path="*" element={<NoPage />} />
-        <Route path="/lang/:id" element={<Language />} />
+        <Route path="/lang/:id" element={user ? <Language /> : <Login />} />
       </Routes>
     </BrowserRouter>
   );
