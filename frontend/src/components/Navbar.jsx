@@ -9,18 +9,18 @@ const Navbar = () => {
   return (
     <div className="w-full shadow-xl lg:bg-white ">
       <div className="flex items-center justify-between w-full p-4 xl:m-auto xl:w-9/12 h-14 lg:h-16 md:h-12 lg:z-50">
-        <div className="font-mono text-2xl font-bold text-blue">
+        <div className="font-mono text-2xl font-bold lg:font-extrabold text-blue">
           <Link to="/">LexiLab</Link>
         </div>
         <div className="hidden lg:flex">
-          <li className="m-3 list-none">
+          <li className="m-3 font-bold uppercase list-none">
             <Link to="/">Home</Link>
           </li>
-          <li className="m-3 list-none">
+          <li className="m-3 font-bold uppercase list-none">
             <Link to="/contact">Contact Us</Link>
           </li>
 
-          <li className="m-3 list-none">
+          <li className="m-3 font-bold uppercase list-none">
             <a
               href="https://github.com/sagar1952115"
               rel="noreferrer"

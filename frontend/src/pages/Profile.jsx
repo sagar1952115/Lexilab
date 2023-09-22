@@ -4,6 +4,8 @@ import axios from "axios";
 const Profile = () => {
   const user = localStorage.getItem("user");
   const User = JSON.parse(user);
+  const [loading, setLoading] = useState(false);
+
   const arr = { en: "ENGLISH", es: "SPANISH", de: "GERMAN" };
   const [learningData, setLearningData] = useState([]);
 
@@ -16,6 +18,7 @@ const Profile = () => {
     window.location.href = "/signin";
   };
   const fetchLearningInfo = async () => {
+    setLoading(true);
     try {
       const res = await axios.get(
         `https://lexilab.onrender.com/api/user/profile/${User.data._id}`
@@ -24,6 +27,7 @@ const Profile = () => {
     } catch (err) {
       console.log(err);
     }
+    setLoading(false);
   };
 
   return (
@@ -48,30 +52,33 @@ const Profile = () => {
       <h1 className="mt-4 text-2xl font-extrabold text-center lg:text-4xl text-blue">
         Languages Learning
       </h1>
-
-      <div className="flex flex-col m-4 md:flex-row">
-        {learningData.length !== 0 ? (
-          learningData.map((curr, i) => {
-            return (
-              <div
-                key={i}
-                className="flex items-center justify-between w-64 h-32 p-1 m-4 "
-              >
-                <div className="flex items-center justify-center w-3/4 h-full text-2xl font-extrabold text-white bg-black rounded-l-lg bg-gradient-to-b from-graylight to-graydark">
-                  {arr[curr.lang_id]}
-                </div>
-                {/* <div className="bg-black">
+      {loading ? (
+        <div className="w-24 h-24 mx-auto my-5 border-t-2 border-blue-500 rounded-full animate-spin"></div>
+      ) : (
+        <div className="flex flex-col m-4 md:flex-row">
+          {learningData.length !== 0 ? (
+            learningData.map((curr, i) => {
+              return (
+                <div
+                  key={i}
+                  className="flex items-center justify-between w-64 h-32 p-1 m-4 "
+                >
+                  <div className="flex items-center justify-center w-3/4 h-full text-2xl font-extrabold text-white bg-black rounded-l-lg bg-gradient-to-b from-graylight to-graydark">
+                    {arr[curr.lang_id]}
+                  </div>
+                  {/* <div className="bg-black">
           </div> */}
-                <div className="flex items-center justify-center w-1/4 h-full text-2xl font-extrabold text-white rounded-r-lg bg-gradient-to-r from-graylight to-graydark ">
-                  {curr.score}
+                  <div className="flex items-center justify-center w-1/4 h-full text-2xl font-extrabold text-white rounded-r-lg bg-gradient-to-r from-graylight to-graydark ">
+                    {curr.score}
+                  </div>
                 </div>
-              </div>
-            );
-          })
-        ) : (
-          <div>No Data Available</div>
-        )}
-      </div>
+              );
+            })
+          ) : (
+            <div>No Data Available</div>
+          )}
+        </div>
+      )}
       <div className="flex justify-between w-11/12">
         <button
           onClick={handleLogout}
